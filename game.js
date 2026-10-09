@@ -35,7 +35,7 @@ const GENERATORS = [
     icon: '👫',
     desc: 'Nuestros pequeños amiguitos.',
     baseCost: 15,
-    baseProduction: 100000000000000.4,
+    baseProduction: 0.4,
     costMultiplier: 1.15,
   },
   {
