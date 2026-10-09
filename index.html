@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PROA Clicker - Juego clicker basado en la Escuela PROA. ¡Acumulá conocimiento y mejorá tu escuela!">
+  <title>PROA Clicker - Escuela PROA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Partículas de fondo -->
+  <div id="particles-bg"></div>
+
+  <!-- Header -->
+  <header id="game-header">
+    <div class="header-left">
+      <div class="logo-icon">🎓</div>
+      <h1>PROA <span class="accent">Clicker</span></h1>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill" id="stat-per-sec">
+        <span class="stat-icon">⚡</span>
+        <span id="display-per-sec">0</span>/seg
+      </div>
+      <div class="stat-pill" id="stat-total">
+        <span class="stat-icon">📊</span>
+        Total: <span id="display-total">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Game Area -->
+  <main id="game-main">
+    <!-- Left Panel: Stats & Achievements -->
+    <aside id="panel-left">
+      <div class="panel-section">
+        <h2 class="panel-title">📈 Estadísticas</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Clicks Totales</div>
+            <div class="stat-value" id="stat-clicks">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Por Click</div>
+            <div class="stat-value" id="stat-click-power">1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Nivel Escuela</div>
+            <div class="stat-value" id="stat-level">1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Mejoras Compradas</div>
+            <div class="stat-value" id="stat-upgrades">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2 class="panel-title">🏆 Logros</h2>
+        <div id="achievements-list" class="achievements-grid">
+          <!-- Se llenan dinámicamente -->
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <button id="reset-game-btn" class="reset-btn">🗑️ Reiniciar Todo el Progreso</button>
+      </div>
+    </aside>
+
+    <!-- Center: Clicker Area -->
+    <section id="clicker-area">
+      <div class="score-display">
+        <div class="score-amount" id="score-display">0</div>
+        <div class="score-label">🔥 Aura</div>
+      </div>
+
+      <div class="level-bar-container">
+        <div class="level-bar-bg">
+          <div class="level-bar-fill" id="level-bar"></div>
+        </div>
+        <div class="level-bar-label">Nivel <span id="level-label">1</span> — <span id="level-progress">0</span>%</div>
+      </div>
+
+      <div id="click-target-wrapper">
+        <div class="click-ring ring-outer"></div>
+        <div class="click-ring ring-middle"></div>
+        <div class="click-ring ring-inner"></div>
+        <button id="click-target" aria-label="Clickear para ganar conocimiento">
+          <span class="click-emoji">📖</span>
+          <span class="click-label">¡Estudiá!</span>
+        </button>
+      </div>
+
+
+      <!-- Boss Fight Button -->
+      <button id="boss-btn" style="display:none;" aria-label="Enfrentá al Boss">
+        👾 ¡ENFRENTÁ AL BOSS!
+      </button>
+
+      <!-- Manual Rebirth Button -->
+      <button id="manual-rebirth-btn" style="display:none;" aria-label="Graduarse">
+        🎓 ¡PASAR DE AÑO! (Rebirth Nivel 15)
+      </button>
+
+      <!-- End Game Button -->
+      <button id="end-game-btn" style="display:none;" aria-label="Terminar Juego">
+        🏆 ¡TERMINAR JUEGO! (Nivel 29)
+      </button>
+
+      <!-- Rebirth Info -->
+      <div id="rebirth-info">
+        <span>🎓 Año: <strong id="rebirth-count">0</strong></span>
+        <span>✨ Mult: <strong id="rebirth-mult">x1.0</strong></span>
+        <span>💎 Puntos: <strong id="rebirth-points">0</strong></span>
+      </div>
+
+      <!-- Floating click numbers container -->
+      <div id="float-numbers"></div>
+    </section>
+
+    <!-- Right Panel: Upgrades Shop -->
+    <aside id="panel-right">
+      <h2 class="panel-title">🏪 Mejoras</h2>
+      <div class="shop-tabs">
+        <button class="shop-tab active" data-tab="generators" id="tab-generators">Generadores</button>
+        <button class="shop-tab" data-tab="boosters" id="tab-boosters">Potenciadores</button>
+        <button class="shop-tab" data-tab="rebirth" id="tab-rebirth">Graduación 💎</button>
+      </div>
+      <div id="shop-generators" class="shop-list">
+        <!-- Se llenan dinámicamente -->
+      </div>
+      <div id="shop-boosters" class="shop-list" style="display:none;">
+        <!-- Se llenan dinámicamente -->
+      </div>
+      <div id="shop-rebirth" class="shop-list" style="display:none;">
+        <!-- Se llenan dinámicamente -->
+      </div>
+    </aside>
+  </main>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
