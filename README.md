@@ -1,1 +1,1 @@
-Un juego estilol clecker con ambientacion en el colegio PRoA DS
+Un juego estilo clicker con ambientacion en el colegio PRoA DS
